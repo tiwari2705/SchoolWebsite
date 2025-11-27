@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JMG Public Sr. Sec. School</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuration for specific school colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        schoolGreen: '#133926',     /* Deep Forest Green - Primary */
+                        schoolGreenLight: '#1f573c',
+                        schoolRed: '#8a1c1c',       /* Burgundy - Accent */
+                        schoolRedHover: '#6b1414',
+                        schoolCream: '#f9f8f4',     /* Off-white background */
+                        schoolGold: '#C5A059',      /* Metallic Gold for subtle outlines */
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom Hero Overlay */
+        .hero-overlay {
+            background: linear-gradient(rgba(19, 57, 38, 0.7), rgba(19, 57, 38, 0.5));
+        }
+
+        /* Card Hover Effect */
+        .academic-card {
+            transition: all 0.4s ease;
+        }
+        .academic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-schoolCream text-gray-800 font-sans antialiased">
+
+    <!-- Top Bar (Red Accent) -->
+    <div class="bg-schoolRed text-white py-2 text-sm">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="hidden md:flex space-x-6">
+                <span><i class="fas fa-phone-alt mr-2"></i>+91-9999999999</span>
+                <span><i class="fas fa-envelope mr-2"></i>admissions@jmgpublicshool.edu</span>
+            </div>
+            <div class="flex space-x-4 ml-auto">
+                <a href="#" class="hover:text-schoolGold transition">Alumni</a>
+                <a href="#" class="hover:text-schoolGold transition">Parent Portal</a>
+                <a href="#" class="hover:text-schoolGold transition">Staff</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo Area -->
+                <a href="#" class="flex items-center group">
+                    <div class="w-12 h-12 bg-schoolGreen text-white flex items-center justify-center rounded-sm mr-3 border-2 border-schoolGold">
+                        <span class="font-serif text-2xl font-bold">J</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl md:text-2xl font-bold text-schoolGreen uppercase tracking-wide group-hover:text-schoolRed transition duration-300">JMG</span>
+                        <span class="text-xs text-gray-500 uppercase tracking-widest">Place to Learn</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-schoolGreen font-semibold hover:text-schoolRed transition">About</a>
+                    <a href="#" class="text-schoolGreen font-semibold hover:text-schoolRed transition">Admissions</a>
+                    <a href="#" class="text-schoolGreen font-semibold hover:text-schoolRed transition">Academics</a>
+                    <a href="#" class="text-schoolGreen font-semibold hover:text-schoolRed transition">Student Life</a>
+                    <a href="#" class="bg-schoolGreen text-white px-6 py-2 rounded shadow hover:bg-schoolRed transition duration-300 font-serif italic">Apply Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-schoolGreen focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="#" class="text-schoolGreen font-semibold">About</a>
+                <a href="#" class="text-schoolGreen font-semibold">Admissions</a>
+                <a href="#" class="text-schoolGreen font-semibold">Academics</a>
+                <a href="#" class="text-schoolGreen font-semibold">Student Life</a>
+                <a href="#" class="text-schoolRed font-bold">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[85vh] flex items-center justify-center text-center text-white">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="School Building" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 px-6 max-w-4xl mx-auto">
+            <div class="mb-4 inline-block border-b-2 border-schoolRed pb-1">
+                <span class="uppercase tracking-[0.2em] text-sm md:text-base font-light">Est. 2000</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Cultivating Character, <br> Inspiring Excellence.
+            </h1>
+            <p class="text-lg md:text-xl mb-10 font-light max-w-2xl mx-auto opacity-90">
+                A tradition of academic rigor and moral development in the heart of the valley. Join a community dedicated to the future.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#" class="bg-schoolRed hover:bg-schoolRedHover text-white px-8 py-4 rounded shadow-lg transition duration-300 font-semibold tracking-wide">
+                    Plan a Visit
+                </a>
+                <a href="#" class="bg-white hover:bg-gray-100 text-schoolGreen px-8 py-4 rounded shadow-lg transition duration-300 font-semibold tracking-wide">
+                    View Curriculum
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Text Content -->
+                <div class="lg:w-1/2">
+                    <h4 class="text-schoolRed font-bold uppercase tracking-widest text-sm mb-2">Welcome to JMG PUBLIC SCHOOL</h4>
+                    <h2 class="font-serif text-4xl text-schoolGreen font-bold mb-6">A Legacy of Learning</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        For nearly a century, JMG PUBLIC SCHOOL has stood as a beacon of educational excellence. We believe that true education encompasses not just the intellect, but the character. Our distinctive approach blends classical liberal arts with modern innovation.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Every student is known, valued, and challenged to reach their highest potential. We invite you to explore what makes our community unique.
+                    </p>
+                    
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Headmaster" class="w-16 h-16 rounded-full object-cover border-2 border-schoolGreen">
+                        </div>
+                        <div>
+                            <p class="font-serif text-xl text-schoolGreen font-bold italic">Dr. --</p>
+                            <p class="text-sm text-gray-500 uppercase tracking-wide">Head of School</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Grid -->
+                <div class="lg:w-1/2 relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="rounded-lg shadow-xl w-full h-64 object-cover transform translate-y-8">
+                        <img src="https://images.unsplash.com/photo-1427504746696-ea5abd71a309?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="rounded-lg shadow-xl w-full h-64 object-cover">
+                    </div>
+                    <!-- Decorative Element -->
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-schoolRed/10 rounded-full -z-10"></div>
+                    <div class="absolute -top-6 -left-6 w-32 h-32 border-4 border-schoolGreen/20 rounded-lg -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="bg-schoolGreen text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-green-800">
+                <div class="p-4">
+                    <i class="fas fa-graduation-cap text-4xl mb-4 text-schoolGold"></i>
+                    <h3 class="text-4xl font-serif font-bold mb-2">100%</h3>
+                    <p class="text-sm uppercase tracking-widest opacity-80">College Acceptance</p>
+                </div>
+                <div class="p-4">
+                    <i class="fas fa-users text-4xl mb-4 text-schoolGold"></i>
+                    <h3 class="text-4xl font-serif font-bold mb-2">12:1</h3>
+                    <p class="text-sm uppercase tracking-widest opacity-80">Student-Faculty Ratio</p>
+                </div>
+                <div class="p-4">
+                    <i class="fas fa-book-reader text-4xl mb-4 text-schoolGold"></i>
+                    <h3 class="text-4xl font-serif font-bold mb-2">24</h3>
+                    <p class="text-sm uppercase tracking-widest opacity-80">AP Courses</p>
+                </div>
+                <div class="p-4">
+                    <i class="fas fa-trophy text-4xl mb-4 text-schoolGold"></i>
+                    <h3 class="text-4xl font-serif font-bold mb-2">35+</h3>
+                    <p class="text-sm uppercase tracking-widest opacity-80">Athletic Championships</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Pillars -->
+    <section class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-schoolRed font-bold uppercase tracking-widest text-sm">Our Focus</span>
+                <h2 class="font-serif text-4xl text-schoolGreen font-bold mt-2">Pillars of Education</h2>
+                <div class="w-24 h-1 bg-schoolRed mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Card 1 -->
+                <div class="academic-card bg-schoolCream rounded-lg overflow-hidden shadow-sm border-t-4 border-schoolRed group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1515658323429-19d757823b68?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Academics" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-schoolGreen font-bold mb-4">Academics</h3>
+                        <p class="text-gray-600 mb-6 line-clamp-3">
+                            A rigorous curriculum designed to spark curiosity. From STEM to the Humanities, we prepare students for the world stage.
+                        </p>
+                        <a href="#" class="text-schoolRed font-bold uppercase text-sm tracking-wide hover:underline">Learn More &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="academic-card bg-schoolCream rounded-lg overflow-hidden shadow-sm border-t-4 border-schoolGreen group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Arts" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-schoolGreen font-bold mb-4">The Arts</h3>
+                        <p class="text-gray-600 mb-6 line-clamp-3">
+                            Creativity is intelligence having fun. Our fine arts program includes theater, visual arts, and a world-class orchestra.
+                        </p>
+                        <a href="#" class="text-schoolGreen font-bold uppercase text-sm tracking-wide hover:underline">Learn More &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="academic-card bg-schoolCream rounded-lg overflow-hidden shadow-sm border-t-4 border-schoolRed group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Athletics" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-schoolGreen font-bold mb-4">Athletics</h3>
+                        <p class="text-gray-600 mb-6 line-clamp-3">
+                            Building character through competition. Our athletic programs emphasize teamwork, resilience, and fair play.
+                        </p>
+                        <a href="#" class="text-schoolRed font-bold uppercase text-sm tracking-wide hover:underline">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events Preview (Classic List Style) -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-5xl">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-gray-300 pb-4">
+                <div>
+                    <h2 class="font-serif text-3xl text-schoolGreen font-bold">Campus Life</h2>
+                    <p class="text-gray-500 mt-2">Latest news and upcoming events.</p>
+                </div>
+                <a href="#" class="hidden md:block text-schoolRed font-bold hover:text-schoolGreen transition mt-4 md:mt-0">View All News</a>
+            </div>
+
+            <div class="space-y-6">
+                <!-- News Item 1 -->
+                <div class="flex flex-col md:flex-row bg-white p-6 shadow-sm rounded border-l-4 border-schoolGreen hover:shadow-md transition">
+                    <div class="md:w-1/6 text-center md:border-r border-gray-100 pr-4 mb-4 md:mb-0">
+                        <span class="block text-3xl font-serif text-schoolGreen font-bold">24</span>
+                        <span class="block text-sm uppercase text-gray-500">Nov</span>
+                    </div>
+                    <div class="md:w-5/6 md:pl-6">
+                        <h3 class="font-serif text-xl font-bold text-gray-800 mb-2 hover:text-schoolRed cursor-pointer transition">Annual Winter Charity Gala Announced</h3>
+                        <p class="text-gray-600 text-sm">JMG Public Sr. Sec. School invites parents and alumni to our annual fundraiser supporting local community scholarships.</p>
+                    </div>
+                </div>
+
+                <!-- News Item 2 -->
+                <div class="flex flex-col md:flex-row bg-white p-6 shadow-sm rounded border-l-4 border-schoolRed hover:shadow-md transition">
+                    <div class="md:w-1/6 text-center md:border-r border-gray-100 pr-4 mb-4 md:mb-0">
+                        <span class="block text-3xl font-serif text-schoolRed font-bold">02</span>
+                        <span class="block text-sm uppercase text-gray-500">Dec</span>
+                    </div>
+                    <div class="md:w-5/6 md:pl-6">
+                        <h3 class="font-serif text-xl font-bold text-gray-800 mb-2 hover:text-schoolRed cursor-pointer transition">State Debate Championship Finals</h3>
+                        <p class="text-gray-600 text-sm">Cheer on our senior debate team as they head to the state capitol for the final round of arguments.</p>
+                    </div>
+                </div>
+
+                <!-- News Item 3 -->
+                <div class="flex flex-col md:flex-row bg-white p-6 shadow-sm rounded border-l-4 border-schoolGreen hover:shadow-md transition">
+                    <div class="md:w-1/6 text-center md:border-r border-gray-100 pr-4 mb-4 md:mb-0">
+                        <span class="block text-3xl font-serif text-schoolGreen font-bold">15</span>
+                        <span class="block text-sm uppercase text-gray-500">Dec</span>
+                    </div>
+                    <div class="md:w-5/6 md:pl-6">
+                        <h3 class="font-serif text-xl font-bold text-gray-800 mb-2 hover:text-schoolRed cursor-pointer transition">Holiday Orchestral Performance</h3>
+                        <p class="text-gray-600 text-sm">Join us in the Grand Auditorium for an evening of classical music performed by our student orchestra.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="#" class="text-schoolRed font-bold hover:text-schoolGreen transition">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-schoolGreen text-white pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-white text-schoolGreen flex items-center justify-center rounded-sm mr-3">
+                            <span class="font-serif text-xl font-bold">G</span>
+                        </div>
+                        <span class="font-serif text-xl font-bold tracking-wide">JMG</span>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Educating the mind and the heart since 2000. A place where tradition meets tomorrow.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-schoolRed transition"><i class="fab fa-facebook-f text-sm"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-schoolRed transition"><i class="fab fa-twitter text-sm"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-schoolRed transition"><i class="fab fa-instagram text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links 1 -->
+                <div>
+                    <h3 class="font-serif text-lg font-bold mb-6 border-b border-white/20 pb-2 inline-block">Admissions</h3>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-schoolGold transition">How to Apply</a></li>
+                        <li><a href="#" class="hover:text-schoolGold transition">Tuition & Aid</a></li>
+                        <li><a href="#" class="hover:text-schoolGold transition">Visit Campus</a></li>
+                        <li><a href="#" class="hover:text-schoolGold transition">Request Info</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links 2 -->
+                <div>
+                    <h3 class="font-serif text-lg font-bold mb-6 border-b border-white/20 pb-2 inline-block">Community</h3>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-schoolGold transition">Alumni Association</a></li>
+                        <li><a href="#" class="hover:text-schoolGold transition">Parent Portal</a></li>
+                        <li><a href="#" class="hover:text-schoolGold transition">Employment</a></li>
+                        <li><a href="#" class="hover:text-schoolGold transition">Support Greenwood</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-serif text-lg font-bold mb-6 border-b border-white/20 pb-2 inline-block">Contact Us</h3>
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-schoolRed"></i>
+                            <span>2000 Heritage Lane<br>JMG Public Sr. Sec. School, Kalakanker</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-schoolRed"></i>
+                            <span>+91-999999999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-schoolRed"></i>
+                            <span>office@jmgpublicschool.edu</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+                <p>&copy; 2025 JMG Public Sr. Sec. School. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Use</a>
+                    <a href="#" class="hover:text-white">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
